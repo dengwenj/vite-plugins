@@ -5,6 +5,7 @@ const nodeResolve = require('@rollup/plugin-node-resolve')
 const { dts } = require('rollup-plugin-dts')
 
 const args = process.argv.slice(2)
+const plugin = args[args.length - 1]
 
 const finallyPath = (url) => {
   return path.resolve(__dirname, url)
@@ -28,7 +29,7 @@ const horizontalBarToHump = (data) => {
  */
 async function build() {
   // 入口文件路径
-  const input = finallyPath(`./packages/${args[0]}/index.ts`)
+  const input = finallyPath(`./packages/${plugin}/index.ts`)
 
   // 创建一个 Rollup 打包配置
   const bundle = await rollup.rollup({
@@ -38,25 +39,25 @@ async function build() {
         extensions: ['.ts', '.js', '.json']
       }),
       typescript({
-        tsconfig: finallyPath(`./packages/${args[0]}/tsconfig.json`)
+        tsconfig: finallyPath(`./packages/${plugin}/tsconfig.json`)
       }),
     ]
   })
 
   // 生成输出文件 es
   await bundle.write({
-    file: finallyPath(`./packages/${args[0]}/dist/bundle.es.js`),
+    file: finallyPath(`./packages/${plugin}/dist/bundle.es.js`),
     format: 'es'
   })
   // iife
   await bundle.write({
-    file: finallyPath(`./packages/${args[0]}/dist/bundle.iife.js`), // 输出文件路径
+    file: finallyPath(`./packages/${plugin}/dist/bundle.iife.js`), // 输出文件路径
     format: 'iife',
-    name: horizontalBarToHump(args[0])
+    name: horizontalBarToHump(plugin)
   })
   // cjs
   await bundle.write({
-    file: finallyPath(`./packages/${args[0]}/dist/bundle.cjs.js`),
+    file: finallyPath(`./packages/${plugin}/dist/bundle.cjs.js`),
     format: 'cjs'
   })
 
@@ -66,7 +67,7 @@ async function build() {
     plugins: [dts()],
   })
   await dtsBundle.write({
-    file: finallyPath(`./packages/${args[0]}/dist/index.d.ts`),
+    file: finallyPath(`./packages/${plugin}/dist/index.d.ts`),
     format: 'esm',
   })
 
