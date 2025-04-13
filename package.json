@@ -1,0 +1,20 @@
+{
+  "name": "vite-plugins",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C ./example dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "devDependencies": {
+    "rollup": "4.40.0",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@vite-plugin/auto-name": "workspace:*"
+  }
+}
