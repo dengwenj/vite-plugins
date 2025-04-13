@@ -2,7 +2,7 @@
 
 ### vite-plugin-auto-name
 ```npm
-npm install @vite-plugin/auto-name
+npm install vite-plugin-auto-name
 ```
 - [文档地址](https://github.com/dengwenj/vite-plugins/blob/main/packages/vite-plugin-auto-name/README.md)
 

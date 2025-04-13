@@ -1,14 +1,15 @@
 ## 自动注入组件 Name
 ### 安装
 ```npm
-npm install @vite-plugin/auto-name
+npm install vite-plugin-auto-name
 ```
 ### 使用
 #### vite.config.ts 中如下：
 ```ts
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import autoName from '@vite-plugin/auto-name'
+// 插件
+import autoName from 'vite-plugin-auto-name'
 
 export default defineConfig({
   plugins: [autoName(), vue()],
