@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-auto-name",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "./dist/bundle.cjs.js",
   "module": "./dist/bundle.es.js",
   "types": "./dist/index.d.ts",
@@ -17,5 +17,6 @@
     "package.json",
     "README.md"
   ],
-  "private": false
+  "private": false,
+  "homepage": "https://github.com/dengwenj/vite-plugins"
 }
