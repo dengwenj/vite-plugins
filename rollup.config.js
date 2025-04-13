@@ -25,7 +25,7 @@ const horizontalBarToHump = (data) => {
   return hump
 }
 
-let startTime = new Date()
+let startTime = Date.now()
 let endTime
 /**
  * rollup 通过 JS API 的方式进行打包
@@ -42,7 +42,7 @@ async function build() {
         extensions: ['.ts', '.js', '.json']
       }),
       typescript({
-        tsconfig: finallyPath(`./packages/${plugin}/tsconfig.json`)
+        tsconfig: './tsconfig.json'
       }),
     ]
   })
@@ -74,7 +74,7 @@ async function build() {
     format: 'esm',
   })
 
-  endTime = new Date()
+  endTime = Date.now()
 
   // 关闭打包实例
   await bundle.close()

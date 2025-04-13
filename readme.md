@@ -1,6 +1,6 @@
 ## 写的 Vite 的一些插件
 
-### vite-plugin-auto-name
+### vite-plugin-auto-name（Vue）
 ```npm
 npm install vite-plugin-auto-name
 ```
