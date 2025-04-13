@@ -15,7 +15,7 @@ export default defineConfig({
 })
 ```
 #### vue 文件如下：
-```vue
+```html
 <!-- 在 script 标签中写上 name 属性即可：name="你的组件名" -->
 <script setup lang="ts" name="test">
 console.log("自动注入 name 属性")
