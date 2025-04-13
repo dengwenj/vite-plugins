@@ -1,4 +1,7 @@
 {
   "name": "@vite-plugin/auto-name",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "main": "./dist/bundle.cjs.js",
+  "module": "./dist/bundle.es.js",
+  "types": "./dist/index.d.ts"
 }
