@@ -3,6 +3,7 @@ const path = require('path')
 const typescript = require('@rollup/plugin-typescript')
 const nodeResolve = require('@rollup/plugin-node-resolve')
 const { dts } = require('rollup-plugin-dts')
+const pc = require('picocolors')
 
 const args = process.argv.slice(2)
 const plugin = args[args.length - 1]
@@ -24,6 +25,8 @@ const horizontalBarToHump = (data) => {
   return hump
 }
 
+let startTime = new Date()
+let endTime
 /**
  * rollup 通过 JS API 的方式进行打包
  */
@@ -71,11 +74,17 @@ async function build() {
     format: 'esm',
   })
 
+  endTime = new Date()
+
   // 关闭打包实例
   await bundle.close()
 }
 
 // 调用构建函数
-build().catch((error) => {
-  console.error('打包过程中出现错误:', error)
+build()
+  .then(() => {
+    console.log(pc.green(`打包成功, 共花费${((endTime - startTime) / 1000).toFixed(2)}s`))
+  })
+  .catch((error) => {
+    console.error(pc.bgRed('打包过程中出现错误: '), error)
 })
