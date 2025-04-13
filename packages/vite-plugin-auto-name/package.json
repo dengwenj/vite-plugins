@@ -1,7 +1,21 @@
 {
-  "name": "@vite-plugin/auto-name",
+  "name": "vite-plugin-auto-name",
   "version": "1.0.0",
   "main": "./dist/bundle.cjs.js",
   "module": "./dist/bundle.es.js",
-  "types": "./dist/index.d.ts"
+  "types": "./dist/index.d.ts",
+  "author": {
+    "name": "朴睦"
+  },
+  "keywords": [
+    "vue",
+    "vite-plugin",
+    "vite-plugin-auto-name"
+  ],
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
+  "private": false
 }
